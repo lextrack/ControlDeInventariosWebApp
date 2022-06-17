@@ -1,0 +1,82 @@
+﻿@model ControlDeInventarios.Models.Tiendum
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        @TempData["Message"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+<h1>Crear</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Producto" class="control-label"></label>
+                <input asp-for="Producto" class="form-control" />
+                <span asp-validation-for="Producto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Entradas" class="control-label"></label>
+                <input asp-for="Entradas" class="form-control" />
+                <span asp-validation-for="Entradas" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Salidas" class="control-label"></label>
+                <input asp-for="Salidas" class="form-control" />
+                <span asp-validation-for="Salidas" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PrecioUnitario" class="control-label"></label>
+                <input asp-for="PrecioUnitario" class="form-control" />
+                <span asp-validation-for="PrecioUnitario" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ubicación" class="control-label"></label>
+                <input asp-for="Ubicación" class="form-control" />
+                <span asp-validation-for="Ubicación" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GuíaDespacho" class="control-label"></label>
+                <input asp-for="GuíaDespacho" class="form-control" />
+                <span asp-validation-for="GuíaDespacho" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Proveedor" class="control-label"></label>
+                <input asp-for="Proveedor" class="form-control" />
+                <span asp-validation-for="Proveedor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Fecha" class="control-label"></label>
+                <input asp-for="Fecha" class="form-control" />
+                <span asp-validation-for="Fecha" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Observaciones" class="control-label"></label>
+                <input asp-for="Observaciones" class="form-control" />
+                <span asp-validation-for="Observaciones" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <br />
+                <input type="submit" value="Crear" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-warning">Volver al registro</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

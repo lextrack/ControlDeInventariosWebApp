@@ -1,0 +1,99 @@
+﻿@model IEnumerable<ControlDeInventarios.Models.Tiendum>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        @TempData["Message"]
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+<h1>Registros</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Crear un nuevo registro</a>
+</p>
+<table class="table table-striped table-dark">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Producto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Entradas)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Salidas)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Total)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PrecioUnitario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ubicación)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GuíaDespacho)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Proveedor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fecha)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Observaciones)
+            </th>
+            <th>Controles</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Producto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Entradas)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Salidas)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Total)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrecioUnitario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ubicación)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GuíaDespacho)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Proveedor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fecha)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Observaciones)
+            </td>
+            <td>
+                    <div class="btn-group" role="group" aria-label="Controls">
+                        <button type="button" class="btn btn-warning"><div><a asp-action="Edit" class="btn btn-sm" asp-route-id="@item.Id">Editar</a> </div></button>
+                        <button type="button" class="btn btn-info"><div><a asp-action="Details" class="btn btn-sm" asp-route-id="@item.Id">Detalle</a> </div></button>
+                        <button type="button" class="btn btn-danger"><div><a asp-action="Delete" class="btn btn-sm" asp-route-id="@item.Id">Eliminar</a> </div></button>
+                    </div>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
