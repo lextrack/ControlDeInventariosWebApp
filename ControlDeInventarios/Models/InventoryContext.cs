@@ -30,21 +30,21 @@ namespace ControlDeInventarios.Models
                 entity.Property(e => e.Fecha).HasColumnType("date");
 
                 entity.Property(e => e.Observaciones)
-                    .HasMaxLength(50)
+                    .HasMaxLength(80)
                     .IsUnicode(false);
 
                 entity.Property(e => e.Producto)
-                    .HasMaxLength(50)
+                    .HasMaxLength(60)
                     .IsUnicode(false);
 
                 entity.Property(e => e.Proveedor)
-                    .HasMaxLength(20)
+                    .HasMaxLength(50)
                     .IsUnicode(false);
 
                 entity.Property(e => e.Total).HasComputedColumnSql("([Entradas]-[Salidas])", false);
 
                 entity.Property(e => e.Ubicación)
-                    .HasMaxLength(20)
+                    .HasMaxLength(50)
                     .IsUnicode(false);
             });
 
