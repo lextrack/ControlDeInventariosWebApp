@@ -20,7 +20,10 @@ namespace ControlDeInventarios.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-
+            if (!optionsBuilder.IsConfigured)
+            {
+                optionsBuilder.UseSqlServer("Server=LOCALHOST; Database=Inventory; Trusted_Connection=True;");
+            }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -30,7 +33,7 @@ namespace ControlDeInventarios.Models
                 entity.Property(e => e.Fecha).HasColumnType("date");
 
                 entity.Property(e => e.Observaciones)
-                    .HasMaxLength(80)
+                    .HasMaxLength(100)
                     .IsUnicode(false);
 
                 entity.Property(e => e.Producto)
