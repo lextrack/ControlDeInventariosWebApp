@@ -19,18 +19,15 @@ namespace ControlDeInventarios.Models
         public virtual DbSet<Tiendum> Tienda { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            if (!optionsBuilder.IsConfigured)
-            {
-                optionsBuilder.UseSqlServer("Server=LOCALHOST; Database=Inventory; Trusted_Connection=True;");
-            }
+        {            
+
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Tiendum>(entity =>
             {
-                entity.Property(e => e.Fecha).HasColumnType("date");
+                entity.Property(e => e.Fecha).HasColumnType("datetime");
 
                 entity.Property(e => e.Observaciones)
                     .HasMaxLength(100)
